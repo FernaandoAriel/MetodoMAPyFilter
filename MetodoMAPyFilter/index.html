@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de map y filter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ejemplos de map y filter en JavaScript</h1>
+    
+    <div class="introduction">
+        <p>Los métodos <code>map()</code> y <code>filter()</code> son funciones de orden superior en JavaScript que permiten manipular arrays de manera elegante y funcional. Estos métodos son fundamentales para la programación funcional.</p>
+    </div>
+
+    <div class="example-card">
+        <h2>¿Qué es map()?</h2>
+        <p class="example-description">El método <code>map()</code> crea un nuevo array con los resultados de llamar a una función proporcionada en cada elemento del array original.</p>
+        
+        <div class="code-section">
+            <pre>const nuevoArray = array.map((elemento, índice, array) => { /* código */ });</pre>
+        </div>
+    </div>
+
+    <div class="example-card">
+        <h2>Resultados de map:</h2>
+        <div class="example-title">Ejemplo 1: Duplicar números</div>
+        <div class="code-section">
+            <pre>let numeros = [1, 2, 3, 4, 5];
+let duplicados = numeros.map(function(num) {
+    return num * 2;
+});</pre>
+        </div>
+        <p id="map-result-1"></p>
+        
+        <div class="example-title">Ejemplo 2: Convertir a mayúsculas</div>
+        <div class="code-section">
+            <pre>let nombres = ["juan", "ana", "carlos"];
+let nombresMayusculas = nombres.map(function(nombre) {
+    return nombre.toUpperCase();
+});</pre>
+        </div>
+        <p id="map-result-2"></p>
+    </div>
+
+    <div class="example-card">
+        <h2>¿Qué es filter()?</h2>
+        <p class="example-description">El método <code>filter()</code> crea un nuevo array con todos los elementos que cumplan la condición implementada por la función proporcionada.</p>
+        
+        <div class="code-section">
+            <pre>const nuevoArray = array.filter((elemento, índice, array) => { /* código que retorna true o false */ });</pre>
+        </div>
+    </div>
+
+    <div class="example-card">
+        <h2>Resultados de filter:</h2>
+        <div class="example-title">Ejemplo 1: Filtrar números pares</div>
+        <div class="code-section">
+            <pre>let numerosPares = numeros.filter(function(num) {
+    return num % 2 === 0;
+});</pre>
+        </div>
+        <p id="filter-result-1"></p>
+        
+        <div class="example-title">Ejemplo 2: Filtrar mayores de edad</div>
+        <div class="code-section">
+            <pre>let personas = [
+    { nombre: "Juan", edad: 25 },
+    { nombre: "Ana", edad: 17 },
+    { nombre: "Carlos", edad: 30 }
+];
+let mayoresDeEdad = personas.filter(function(persona) {
+    return persona.edad >= 18;
+});</pre>
+        </div>
+        <p id="filter-result-2"></p>
+    </div>
+
+    <div class="example-card">
+        <h2>Comparación entre map() y filter()</h2>
+        <table>
+            <tr>
+                <th>Característica</th>
+                <th>map()</th>
+                <th>filter()</th>
+            </tr>
+            <tr>
+                <td>Propósito principal</td>
+                <td>Transformar elementos</td>
+                <td>Seleccionar elementos</td>
+            </tr>
+            <tr>
+                <td>Tamaño del array resultante</td>
+                <td>Igual al original</td>
+                <td>Igual o menor al original</td>
+            </tr>
+            <tr>
+                <td>Valor de retorno de callback</td>
+                <td>Nuevo valor para el array</td>
+                <td>Booleano (true/false)</td>
+            </tr>
+            <tr>
+                <td>Uso común</td>
+                <td>Convertir datos</td>
+                <td>Buscar/filtrar datos</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="example-card">
+        <h2>Combinando map() y filter()</h2>
+        <p class="example-description">Estos métodos son aún más poderosos cuando se combinan:</p>
+        <div class="code-section">
+            <pre>// Duplicar solo los números pares
+let numerosParesDuplicados = numeros
+    .filter(num => num % 2 === 0)
+    .map(num => num * 2);
+
+document.getElementById("combined-result").textContent = "Números pares duplicados: " + numerosParesDuplicados.join(", ");</pre>
+        </div>
+        <p id="combined-result"></p>
+    </div>
+
+    <footer>
+        <p>Ejemplos prácticos de métodos de array en JavaScript - Fernando Morales</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
